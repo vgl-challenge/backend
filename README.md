@@ -39,4 +39,4 @@ Wenn du fertig bist sollte man `php test_run.php` ausführen können und `It wor
 Schau dir die Datei `test_run.php` genau an, dort siehst du, wie deine Applikation aufgerufen wird.
 
 Es ist in Ordnung, falls du die Aufgabe nicht vollständig im gegeben Zeitraum lösen kannst oder mit der Qualität deiner Lösung nicht zu Frieden bist.
-Bitte kommentiere dann deinen Pull Request mit Verbesserungsvorschlägen und Hinweisen auf potenzielle Problemen die du in deiner Lösung siehst.
+Bitte kommentiere dann deinen Pull Request mit Verbesserungsvorschlägen und Hinweisen auf potenzielle Probleme, die du in deiner Lösung siehst.
