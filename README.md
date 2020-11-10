@@ -20,8 +20,7 @@ Du sollst eine Software entwickeln, die die oben beschriebenen Geschäftsprozess
 - Wenn am Ende noch etwas Zeit übrig ist, bitte noch Unit-Tests für 2 Klassen deiner Wahl erstellen
 
 *Anmerkungen zur Abarbeitung der Events:*
-- In den Nachrichten soll `{field}` durch den jeweiligen Wert ersetzt werden, z.B.: `Product created: 1 Stuhl 10,00`
-- In den Nachrichten für Produkt Updates sollen nur Felder die sich tatsächlich beim update geändert haben ausgegeben werden. 
+In den Nachrichten für Produkt Updates sollen nur Felder die sich tatsächlich beim update geändert haben ausgegeben werden. 
 Wir gehen davon aus, dass ein Redakteur beim Bearbeiten immer nur ein einziges Feld ändert und nie mehrere auf einmal.
 
 ## Implementation Details
@@ -38,5 +37,5 @@ Wir gehen davon aus, dass ein Redakteur beim Bearbeiten immer nur ein einziges F
 Wenn du fertig bist sollte man `php test_run.php` ausführen können und `It works!` in der console ausgegeben werden. 
 Schau dir die Datei `test_run.php` genau an, dort siehst du, wie deine Applikation aufgerufen wird.
 
-Es ist in Ordnung, falls du die Aufgabe nicht vollständig im gegeben Zeitraum lösen kannst oder mit der Qualität deiner Lösung nicht zu Frieden bist.
+Es ist in Ordnung, falls du die Aufgabe nicht vollständig im gegeben Zeitraum lösen kannst oder mit der Qualität deiner Lösung nicht zufrieden bist.
 Bitte kommentiere dann deinen Pull Request mit Verbesserungsvorschlägen und Hinweisen auf potenzielle Probleme, die du in deiner Lösung siehst.
