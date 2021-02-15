@@ -6,6 +6,13 @@ class Reader
 {
     private const STORAGE_PATH = __DIR__ . '/../../storage/';
 
+    public function check(string $key) : bool
+    {
+        $fileName = $this->createFileName($key);
+
+        return file_exists($fileName);
+    }
+
     public function read(string $key) : string
     {
         $fileName = $this->createFileName($key);
