@@ -1,41 +1,39 @@
 # Coding Challenge
-Unsere Redakteure müssen Tabellen mit Produktvergleichen verwalten (z.B. https://widget.vgl.org/?comparisonId=2907). 
-Dazu müssen sie unter anderem in der Lage sein, einzelne Produkte anlegen, bearbeiten und löschen zu können. 
-Immer wenn ein Produkt angelegt, bearbeitet oder gelöscht worden ist, müssen verschiedene Prozesse angestoßen und durchlaufen werden, 
-z.B. müssen Vergleichstabellen mit den neuen Daten aktualisiert werden. 
-Da diese Prozesse sehr umfangreich werden können, dürfen diese nicht direkt an den redaktionellen Vorgang gebunden sein, 
-sondern müssen unabhängig davon passieren.
+Our editors have to manage tables which compare products or services (e.g. https://widget.vgl.org/?comparisonId=2907).
+To manage these tables, the editors have to be able to create, update and delete products used in the tables.
+Everytime a product is created, updated or deleted, different process have to be executed. For example if a product is updated, all tables using this product have to be updated.
+Because these processes can take a long time and should not block the work of the editors, they must not be connected directly to the editors workflows but run independently.
 
-Du sollst eine Software entwickeln, die die oben beschriebenen Geschäftsprozesse in einer vereinfachten Version wiederspiegeln.
+You're asked to develop a software, which can handle this scenario in a simplified manner.
 
-## Anforderungen:
-- Ein Produkt besteht aus einer Id, einen Namen und einem Preis
-- Produkte müssen anlegt, bearbeitet und gelöscht werden können. Hierfür soll jeweils ein cli-script als Einstiegspunkt genutzt werden
-- Wenn ein Produkt angelegt/bearbeitet/gelöscht worden ist, muss ein Event in eine Queue geschrieben werden
-- Die Events sollen anschließend aus der Queue gelesen und abgearbeitet werden
-- Bei der Abarbeitung der Events soll je nach Event-Auslöser eine Nachricht in folgendem Format in der console ausgegeben werden:
-    - Produkt angelegt: `Product created: {id} {name} {price}`
-    - Produkt löschen: `Product deleted: {id}`
-    - Produkt bearbeiten: `Product updated: {changed fields}`
-- Wenn am Ende noch etwas Zeit übrig ist, bitte noch Unit-Tests für 2 Klassen deiner Wahl erstellen
+## Requirements:
+- A product consist of an id, a name and a price
+- Products must be able to be created, updated and deleted. A simple cli-script should be the entry point to these actions
+- If a product was created/updated/deleted, an event must be written in a queue.
+- The events should be read from the queue and processed.
+- When processing the events, a message in these formats (depending on the event type) should be returned to the cli:
+  - Product created: `Product created: {id} {name} {price}`
+  - Product deleted: `Product deleted: {id}`
+  - Product updated: `Product updated: {changed fields}`
+- If there is time left at the end, please create one or more unit tests
 
-*Anmerkungen zur Abarbeitung der Events:*
-In den Nachrichten für Produkt Updates sollen nur Felder die sich tatsächlich beim update geändert haben ausgegeben werden. 
-Wir gehen davon aus, dass ein Redakteur beim Bearbeiten immer nur ein einziges Feld ändert und nie mehrere auf einmal.
+*Note to the processing of events:*
+In the message for product updates only fields which data actually changed should be returned. 
+We assume, that an editor always only changes one field, never multiple at the same time.
 
-## Implementation Details
+## Implementation details
 
-- Fork dieses Repository und erstelle einen Pull Request mit deiner Lösung
-- Benutze php 7.1 oder höher
-- Das `src` directory soll für die Business Logik genutzt werden
-- Die Skripte im `cli` directory sind die Einstiegspunkte deiner Applikation 
-- Zum Persistieren von Daten `App\Storage\Writer` verwenden (persistiert die Daten im `storage` directory)
-- Zum Lesen von Daten `App\Storage\Reader` verwenden
-- Für Unit-Test ein `test` directory erstellen (mit `composer test` können die Tests ausgeführt werden)
+- Fork or pull this repository and create a pull request with your solution
+- Use php 7.1 or higher
+- The `src` directory should be used for the business logic
+- The scripts in the `cli` directory are the entry points to the software
+- To persist data use `App\Storage\Writer` (persists data in the `storage` directory)
+- To read persisted data use `App\Storage\Reader`
+- For unit tests create a `test` directory (`composer test` can be used to execute the tests)
 
-## Ziel
-Wenn du fertig bist sollte man `php test_run.php` ausführen können und `It works!` in der console ausgegeben werden. 
-Schau dir die Datei `test_run.php` genau an, dort siehst du, wie deine Applikation aufgerufen wird.
+## Goal
+To check if your solution works like required, you can execute `php test_run.php` and `It works!` should be the cli response. 
+Inspect the file `test_run.php` to see, how your software will be called.
 
-Es ist in Ordnung, falls du die Aufgabe nicht vollständig im gegeben Zeitraum lösen kannst oder mit der Qualität deiner Lösung nicht zufrieden bist.
-Bitte kommentiere dann deinen Pull Request mit Verbesserungsvorschlägen und Hinweisen auf potenzielle Probleme, die du in deiner Lösung siehst.
+It is not a problem if you cannot reach the goal in the given time or if you are not happy with the quality of your solution.
+Please write comment/s in your pull request to tell us what you would have changed with more time or where you can see potential problems.
