@@ -4,7 +4,7 @@ To manage these tables, the editors have to be able to create, update and delete
 Everytime a product is created, updated or deleted, different process have to be executed. For example if a product is updated, all tables using this product have to be updated.
 Because these processes can take a long time and should not block the work of the editors, they must not be connected directly to the editors workflows but run independently.
 
-You must develop a software, which can handle this scenario.
+You're asked to develop a software, which can handle this scenario in a simplified manner.
 
 ## Requirements:
 - A product consist of an id, a name and a price
@@ -32,8 +32,8 @@ We assume, that an editor always only changes one field, never multiple at the s
 - For unit tests create a `test` directory (`composer test` can be used to execute the tests)
 
 ## Goal
-Tp check if your solution works like required, you can execute `php test_run.php` and `It works!` should be the cli response. 
+To check if your solution works like required, you can execute `php test_run.php` and `It works!` should be the cli response. 
 Inspect the file `test_run.php` to see, how your software will be called.
 
-It is no problem if you cannot reach the goal in the given time or if you are not happy with the quality of your solution.
-Please write comment/s in your pull request to tell us would you would have changed with more time or where you can see potential problems.
+It is not a problem if you cannot reach the goal in the given time or if you are not happy with the quality of your solution.
+Please write comment/s in your pull request to tell us what you would have changed with more time or where you can see potential problems.
