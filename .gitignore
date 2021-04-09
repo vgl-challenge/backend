@@ -2,3 +2,4 @@
 /storage/*
 !/storage/.gitkeep
 /vendor
+.DS_Store
