@@ -1,6 +1,7 @@
 <?php
 
 require(__DIR__.'/../Storage/Writer.php');
+require(__DIR__.'/../Storage/Reader.php');
 
 use App\Storage;
 
