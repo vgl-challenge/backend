@@ -30,7 +30,6 @@ class Product{
                 $action == 'delete' && count($data) != 1){
                 throw new Exception('wrong_params_count');
             }
-            print_r($data);
             if(!array_key_exists('id', $data)){
                 throw new Exception('missing_id');
             }
