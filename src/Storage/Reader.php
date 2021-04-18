@@ -23,8 +23,13 @@ class Reader
         return $data;
     }
 
+    public function getStoragePath(){
+        return self::STORAGE_PATH;
+    }
+
     private function createFileName(string $key) : string
     {
         return self::STORAGE_PATH . $key;
     }
+
 }
