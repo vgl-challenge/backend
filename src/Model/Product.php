@@ -89,11 +89,11 @@ final class Product implements JsonSerializable
     public function jsonSerialize(): array
     {
         return [
-            'id' => $this->getId(),
-            'name' =>$this->getName(),
-            'price' =>$this->getPrice(),
-            'created' =>$this->getCreated()->format('d-m-Y H:i:s'),
-            'modified' =>$this->getModified()->format('d-m-Y H:i:s'),
+            'id'       => $this->getId(),
+            'name'     => $this->getName(),
+            'price'    => $this->getPrice(),
+            'created'  => $this->getCreated()->format('d-m-Y H:i:s'),
+            'modified' => $this->getModified()->format('d-m-Y H:i:s'),
         ];
     }
 }
