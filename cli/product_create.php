@@ -3,6 +3,7 @@
 require 'vendor/autoload.php';
 
 use App\Model\Product;
+use App\Storage\ProductQueue;
 use App\Storage\Writer;
 
 $writer = new Writer();
@@ -20,3 +21,5 @@ $product = new Product($options['name'], $options['price']);
 
 $writer->create($product->getId() . '.json', json_encode($product, JSON_PRETTY_PRINT));
 
+$queue = new ProductQueue();
+$queue->addCreated($product->getId(), $product->getName(), $product->getPrice());

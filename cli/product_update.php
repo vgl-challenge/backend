@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 
+use App\Storage\ProductQueue;
 use App\Storage\Reader;
 use App\Storage\Writer;
 
@@ -26,10 +27,15 @@ $productDecoded = json_decode($productJson, true);
 
 $id = $options['id'];
 array_shift($options);
+$changedFields = '';
 
 foreach ($options as $key => $value) {
     $productDecoded[$key] = $value;
+    $changedFields .= "$key: $value";
 }
 
 $writer = new Writer();
 $writer->update($id . '.json', json_encode($productDecoded));
+
+$queue = new ProductQueue();
+$queue->addUpdated($changedFields);

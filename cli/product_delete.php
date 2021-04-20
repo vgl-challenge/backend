@@ -3,6 +3,7 @@
 require 'vendor/autoload.php';
 
 use App\Exception\FileMissingException;
+use App\Storage\ProductQueue;
 use App\Storage\Reader;
 use App\Storage\Writer;
 
@@ -26,3 +27,6 @@ try {
 }
 
 $writer->delete($options['id']. '.json');
+
+$queue = new ProductQueue();
+$queue->addDeleted($options['id']);
