@@ -86,15 +86,14 @@ final class Product implements JsonSerializable
         $this->modified = $modified;
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
-        return sprintf(
-            '{"id": "%s", "name": "%s", "price": "%s", "created": "%s", "modified": "%s"}',
-            $this->getId(),
-            $this->getName(),
-            $this->getPrice(),
-            $this->getCreated()->format('d-m-Y H:i:s'),
-            $this->getModified()->format('d-m-Y H:i:s')
-        );
+        return [
+            'id' => $this->getId(),
+            'name' =>$this->getName(),
+            'price' =>$this->getPrice(),
+            'created' =>$this->getCreated()->format('d-m-Y H:i:s'),
+            'modified' =>$this->getModified()->format('d-m-Y H:i:s'),
+        ];
     }
 }

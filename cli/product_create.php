@@ -18,5 +18,5 @@ if (!empty($missingFields)) {
 
 $product = new Product($options['name'], $options['price']);
 
-$writer->create($product->getId() . '.json', json_encode($product));
+$writer->create($product->getId() . '.json', json_encode($product, JSON_PRETTY_PRINT));
 
