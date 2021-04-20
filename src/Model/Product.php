@@ -38,7 +38,7 @@ final class Product implements JsonSerializable
     {
         $this->name = $name;
         $this->price = (float)$price;
-        $this->id = $bytes = uniqid('', true);
+        $this->id = str_replace('.', '', uniqid('', true));
         $this->created = new DateTimeImmutable();
     }
 
