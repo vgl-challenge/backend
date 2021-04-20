@@ -2,6 +2,8 @@
 
 namespace App\Storage;
 
+use App\Exception\FileMissingException;
+
 class Reader
 {
     private const STORAGE_PATH = __DIR__ . '/../../storage/';
@@ -11,7 +13,7 @@ class Reader
         $fileName = $this->createFileName($key);
 
         if (file_exists($fileName) === false) {
-            throw new \RuntimeException('File with key does not exist: ' . $key);
+            throw new FileMissingException('File with key does not exist: ' . $key);
         }
 
         $data = file_get_contents($fileName);
