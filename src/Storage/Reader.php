@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Storage;
 
@@ -6,7 +8,7 @@ class Reader
 {
     private const STORAGE_PATH = __DIR__ . '/../../storage/';
 
-    public function read(string $key) : string
+    public function read(string $key): string
     {
         $fileName = $this->createFileName($key);
 
@@ -23,7 +25,23 @@ class Reader
         return $data;
     }
 
-    private function createFileName(string $key) : string
+    public function readEvents(): string
+    {
+        $fileName = $this->createFileName('events');
+
+        if (file_exists($fileName) === false) {
+            throw new \RuntimeException('No event to process: ');
+        }
+
+        $data = file_get_contents($fileName);
+
+        if ($data === false) {
+            throw new \RuntimeException('No event to process: ');
+        }
+        return $data;
+    }
+
+    private function createFileName(string $key): string
     {
         return self::STORAGE_PATH . $key;
     }
